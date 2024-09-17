@@ -24,9 +24,29 @@ const logout = () => {
   localStorage.removeItem("user");
 };
 
+// Sing in an user
+const login = async (user) => {
+  const config = requestConfig("POST", user);
+
+  try {
+    const res = await fetch(api + "/users/login", config)
+      .then((res) => res.json())
+      .catch((res) => err);
+
+    if (res) {
+      localStorage.setItem("user", JSON.stringify(res));
+    }
+
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const authService = {
   register,
   logout,
+  login,
 };
 
 export default authService;
