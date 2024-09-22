@@ -70,7 +70,7 @@ const Register = () => {
           value={confirmPassword || ""}
         />
         {!loading && <input type="submit" value="Cadastrar" />}
-        {loading && <input type="submit" value="Aguarde" disabled />}
+        {loading && <input type="submit" value="Aguarde..." disabled />}
         {error && <Message msg={error} type="error" />}
       </form>
       <p>
