@@ -1,7 +1,6 @@
 import { api, requestConfig } from "../utils/config";
 
 // Publish an user photo
-
 const publishPhoto = async (data, token) => {
   const config = requestConfig("POST", data, token, true);
 
@@ -16,8 +15,24 @@ const publishPhoto = async (data, token) => {
   }
 };
 
+// Get user photos
+const getUserPhotos = async (id) => {
+  const config = requestConfig("GET");
+
+  try {
+    const res = await fetch(api + "/photos/user/" + id, config)
+      .then((res) => res.json())
+      .catch((err) => err);
+
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const photoService = {
   publishPhoto,
+  getUserPhotos,
 };
 
 export default photoService;
