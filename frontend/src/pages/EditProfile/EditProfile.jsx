@@ -69,7 +69,7 @@ const EditProfile = () => {
     await dispatch(updateProfile(formData));
 
     setTimeout(() => {
-      dispatch(resetMessage);
+      dispatch(resetMessage());
     }, 2000);
   };
 

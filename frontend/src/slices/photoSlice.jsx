@@ -12,14 +12,14 @@ const initialState = {
 
 // Publish user photo
 export const publishPhoto = createAsyncThunk(
-  "photos/publish",
+  "photo/publish",
   async (photo, thunkAPI) => {
     const token = thunkAPI.getState().auth.user.token;
 
     const data = await photoService.publishPhoto(photo, token);
 
     // Check for errors
-    if (data.erros) {
+    if (data.errors) {
       return thunkAPI.rejectWithValue(data.errors[0]);
     }
 
