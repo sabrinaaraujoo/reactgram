@@ -46,6 +46,7 @@ const deletePhoto = async (id, token) => {
 const photoService = {
   publishPhoto,
   getUserPhotos,
+  deletePhoto,
 };
 
 export default photoService;
